@@ -33,11 +33,13 @@ class Game {
     car1.addImage("car1Image",car1Img);
     car2 = createSprite(300,200);
     car2.addImage("car2Image",car2Img);
-    car3 = createSprite(500,200);
-    car3.addImage("car3Image",car3Img);
-    car4 = createSprite(700,200);
-    car4.addImage("car4mage",car4Img);
-    cars = [car1, car2, car3, car4];
+      /*car3 = createSprite(500,200);
+      car3.addImage("car3Image",car3Img);
+      car4 = createSprite(700,200);
+      car4.addImage("car4mage",car4Img);
+      */
+      cars = [car1, car2]//,// car3,// car4];
+      
   }
 
   play(){
@@ -68,7 +70,11 @@ class Game {
         cars[index-1].y = y;
 
         if (index === player.index){
-          cars[index - 1].shapeColor = "red";
+          push();
+          fill("purple");
+          strokeWeight(4);
+          ellipse(cars[index-1].x,cars[index-1].y,70,70);
+          pop();
           camera.position.x = displayWidth/2;
           camera.position.y = cars[index-1].y
         }
